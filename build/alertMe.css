@@ -1,0 +1,203 @@
+/* general */
+.alertMe_container {
+  display: flex;
+  position: absolute;
+  width: 75%;
+  top: 50%;
+  margin-left: 12.5%;
+  transform: translate(0, -75%);
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #333;
+  border-radius: 7px 7px 0 0;
+  box-shadow: 2px 2px 8px #333;
+  background-color: white;
+}
+.alertMe_container.alertMe_ribbon {
+  width: 100%; /* ribbons are full width */
+  margin-left: -8px; /* 10px padding - 1px border each side */
+  transform: translate(0, -100%);
+}
+.alertMe_container.alertMe_alert {
+  padding-bottom: 40px;
+}
+.alertMe_header {
+  flex-direction: column;
+  color: white;
+}
+.alertMe_alert, .alertMe_notification, .alertMe_ribbon {
+  flex-wrap: wrap
+}
+.alertMe_alert > div, .alertMe_notification > div, .alertMe_ribbon > div {
+  width: 100%;
+  padding: 20px;
+}
+.alertMe_alert > div, .alertMe_notification > div {
+  padding: 20px;
+}
+.alertMe_ribbon > div {
+  padding: 10px;
+}
+.alertMe_ribbon .alertMe_body {
+  margin-top: -8px;
+}
+.alertMe_buttons {
+  padding-top: 20px;
+  position: absolute;
+  right: 20px;
+}
+.alertMe_button {
+  border: 0;
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+}
+
+/* animation */
+.alertMe_slideIn {
+  animation-name: slideIn;
+  -moz-animation-name: slideIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+}
+@keyframes slideIn {
+	0% {
+		-webkit-transform: translateY(-200px);
+		-ms-transform:     translateY(-200px);
+		transform:         translateY(-200px)
+  }
+  50% {
+    -webkit-transform: translateY(-80px);
+		-ms-transform:     translateY(-80px);
+		transform:         translateY(-80px)
+  }
+  100% {
+    -webkit-transform: translateY(-110px);
+		-ms-transform:     translateY(-110px);
+		transform:         translateY(-110px)
+  }
+
+  /* 20% {
+    -webkit-transform: translateY(-180px);
+		-ms-transform:     translateY(-180px);
+		transform:         translateY(-180px)
+  }
+	40% {
+		-webkit-transform: translateY(-160px);
+		-ms-transform:     translateY(-160px);
+		transform:         translateY(-160px)
+	}
+	60% {
+		-webkit-transform: translateY(-140px);
+		-ms-transform:     translateY(-140px);
+		transform:         translateY(-140px)
+  }
+  80% {
+    -webkit-transform: translateY(-120px);
+		-ms-transform:     translateY(-120px);
+		transform:         translateY(-120px)
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+		-ms-transform:     translateY(-100px);
+		transform:         translateY(-100px)
+  } */
+}
+
+/* themes */
+.alertMe_header.alertMe_round {
+  border-radius: 7px 7px 0 0;
+}
+.alertMe_button.alertMe_round {
+  border-radius: 7px;
+}
+
+/* close x */
+.alertMe_closeX, .alertMe_closeX + span {
+  cursor: pointer;
+}
+.alertMe_closeX {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 35px;
+}
+.alertMe_ribbon .alertMe_closeX {
+  width: 20px;
+  height: 25px;
+}
+.alertMe_closeX + span::after, .alertMe_closeX + span::before
+{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  content: '';
+  height: 28px;
+  width: 5px;
+  background-color: white;
+}
+.alertMe_ribbon .alertMe_closeX + span::after, .alertMe_ribbon .alertMe_closeX + span::before
+{
+  top: 10px;
+  content: '';
+  height: 20px;
+  width: 3px;
+  background-color: white;
+}
+.alertMe_closeX + span::before {
+  transform: rotate(45deg);
+}
+.alertMe_closeX + span::after {
+  transform: rotate(-45deg);
+}
+
+/* colors */
+.alertMe_default, .alertMe_ribbon .alertMe_default + .alertMe_body {
+  background-color: #77787b;
+}
+button.alertMe_default:hover {
+  background-color: #a7a9ac;
+}
+.alertMe_error, .alertMe_ribbon .alertMe_error + .alertMe_body {
+  background-color: #ae5a58;
+}
+button.alertMe_error:hover {
+  background-color: #cf6b69;
+}
+.alertMe_success, .alertMe_ribbon .alertMe_success + .alertMe_body {
+  background-color: #087c9e;
+}
+button.alertMe_success:hover {
+  background-color: #0794bc;
+}
+.alertMe_warning, .alertMe_ribbon .alertMe_warning + .alertMe_body {
+  background-color: #b59c5c;
+}
+button.alertMe_warning:hover {
+  background-color: #dbbb6e;
+}
+.alertMe_ribbon .alertMe_body {
+  color: white;
+}
+
+/* media */
+@media (max-width: 900px) {
+  .alertMe_container {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+}
+@media (max-width: 600px) {
+  .alertMe_container {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 15px;
+  }
+}

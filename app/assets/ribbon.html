@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Type: Ribbon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        
+        /*Resets for dev'in*/
+        body {padding: 0; margin: 0;}
+        h3{margin:0; padding: 0;}
+        .notes{font-family: Arial; font-size:20px; padding:20px;}
+        /*End Resets For Dev'in*/
+        
+        .alertMe_container {
+            display: grid;
+            grid-template-columns: 93% 7%;
+            margin:0 auto;
+            font-family: Arial;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .alertMe_container > div {
+            padding: 20px 10px;
+            margin: 0;
+            font-size:20px;
+        }
+
+        .alertMe_container > div:nth-child(1) {
+            background: #ccc;
+            font-family: Arial;
+        }
+        .alertMe_container > div:nth-child(2){
+            background:#aaa;
+        }
+        /*div:nth-child(3){
+            background:#ccc;
+        }*/
+        .alertMe_action {
+            cursor: pointer;
+        }
+        .alertMe_center_parent {
+            position: relative;
+        }
+        .alertMe_center_child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 480px) {
+            .alertMe_container > div {
+            padding: 20px 5px;
+            margin: 0;
+            } 
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="alertMe_container">
+
+        <!--<div>
+            <h3>R</h3>
+        </div>-->
+        <div>
+            <h3>R</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis ligula tincidunt, blandit lacus ac, convallis erat.
+        </div>
+        <div class="alertMe_center_parent">
+            <div class="alertMe_action alertMe_center_child">X</div>
+        </div>
+
+    </div>
+    
+    
+
+
+</body>
+
+
+</html>

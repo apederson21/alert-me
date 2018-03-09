@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AlertMe.JS</title>
+        <link rel="stylesheet" href="alertMe.css" />
+    </head>
+    <body>
+        <h2>Tests (Round Theme)</h2>
+        <ul>
+            <li>
+                <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert with heading, text, button text</button>
+                <br />
+                <button onclick="alertMe.alert({class: 'error', heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert Error with heading, text, button text</button>
+                <br />
+                <button onclick="alertMe.alert({class: 'success', heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert Success with heading, text, button text</button>
+                <br />
+                <button onclick="alertMe.alert({class: 'warning', heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert Warning with heading, text, button text</button>
+            </li>
+            <li>
+                <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}, effect: 'slideIn'})">(Slide In Effect) Alert with heading, text, button text</button>
+            </li>
+            <li>
+                <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert'})">Alert with heading, text</button>
+            </li>
+            <li>
+                <button onclick="alertMe.alert({heading: 'My Heading'})">Alert with heading</button>
+            </li>
+            <li>
+                <button onclick="alertMe.alert()">Alert with no props</button>
+                <p><hr /></p>
+            </li>
+            <li>
+                <button onclick="alertMe.notification({heading: 'My Heading', text: 'Some body text for the notification'})">Notification with heading, text</button>
+                <br />
+                <button onclick="alertMe.notification({class: 'error', heading: 'My Heading', text: 'Some body text for the notification'})">Notification Error with heading, text</button>
+                <br />
+                <button onclick="alertMe.notification({class: 'success', heading: 'My Heading', text: 'Some body text for the notification'})">Notification Success with heading, text</button>
+                <br />
+                <button onclick="alertMe.notification({class: 'warning', heading: 'My Heading', text: 'Some body text for the notification'})">Notification Warning with heading, text</button>
+            </li>
+            <li>
+                <button onclick="alertMe.notification({heading: 'My Heading'})">Notification with heading</button>
+            </li>
+            <li>
+                <button onclick="alertMe.notification({heading: 'My Heading', autoClose: true})">Notification with heading + autoclose prop</button>
+            </li>
+            <li>
+                <button onclick="alertMe.notification()">Notification with no props</button>
+                <p><hr /></p>
+            </li>
+            <li>
+                <button onclick="alertMe.ribbon({heading: 'My Heading', text: 'Some body text for the ribbon'})">Ribbon with heading, text</button>
+                <br />
+                <button onclick="alertMe.ribbon({class: 'error', heading: 'My Heading', text: 'Some body text for the ribbon'})">Ribbon Error with heading, text</button>
+                <br />
+                <button onclick="alertMe.ribbon({class: 'success', heading: 'My Heading', text: 'Some body text for the ribbon'})">Ribbon Success with heading, text</button>
+                <br />
+                <button onclick="alertMe.ribbon({class: 'warning', heading: 'My Heading', text: 'Some body text for the ribbon'})">Ribbon Warning with heading, text</button>
+            </li>
+            <li>
+                <button onclick="alertMe.ribbon({heading: 'My Heading'})">Ribbon with heading</button>
+            </li>
+            <li>
+                <button onclick="alertMe.ribbon({heading: 'My Heading', autoClose: true})">Ribbon with heading + autoclose prop</button>
+            </li>
+            <li>
+                <button onclick="alertMe.ribbon()">Ribbon with no props</button>
+            </li>
+        </ul>
+        <script src="alertMe.min.js"></script>
+    </body>
+</html>
