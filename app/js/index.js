@@ -10,10 +10,14 @@ global["alertMe"] = {
     "ribbon": null,
     "notification": null,
     "alert": null,
-    "close": globalClose
+    "close": globalClose,
+    "setTheme": setTheme
 }
 
-// global Alert Me close function
+/**
+ * Global Alert Me close function
+ * @param {string} itemId
+ */
 function globalClose(itemId) {
     // close item by ID
     let element = document.getElementById(itemId);
@@ -25,6 +29,19 @@ function globalClose(itemId) {
       while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
       }
+    }
+}
+
+/**
+ * Runtime configuration of alertMe theme (mainly used for testing)
+ * @param {string} theme (flat or round)
+ */
+function setTheme(theme) {
+    if (!!theme) {
+        // validate theme before setting config
+        configData.theme = 
+            (theme.toLocaleLowerCase() === 'round' || theme.toLocaleLowerCase() === 'flat')
+                ? theme.toLocaleLowerCase() : 'round';
     }
 }
 

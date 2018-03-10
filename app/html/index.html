@@ -5,7 +5,14 @@
         <link rel="stylesheet" href="alertMe.css" />
     </head>
     <body>
-        <h2>Tests (Round Theme)</h2>
+        <h2>Examples</h2>
+        <div>
+            <input type="radio" id="theme_round" name="theme" value="round" checked onClick="alertMe.setTheme('round')">
+            <label for="theme_round">Round Theme</label>
+
+            <input type="radio" id="theme_flat" name="theme" value="flat" onClick="alertMe.setTheme('flat')">
+            <label for="theme_flat">Flat Theme</label>
+        </div>
         <ul>
             <li>
                 <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert with heading, text, button text</button>
@@ -15,9 +22,6 @@
                 <button onclick="alertMe.alert({class: 'success', heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert Success with heading, text, button text</button>
                 <br />
                 <button onclick="alertMe.alert({class: 'warning', heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}})">Alert Warning with heading, text, button text</button>
-            </li>
-            <li>
-                <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert', ok: {text: 'Click Me'}, effect: 'slideIn'})">(Slide In Effect) Alert with heading, text, button text</button>
             </li>
             <li>
                 <button onclick="alertMe.alert({heading: 'My Heading', text: 'Some body text for the alert'})">Alert with heading, text</button>

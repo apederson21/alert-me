@@ -31,6 +31,10 @@ function buildHTML(type = 'notification', options = null, config = null) {
 
     let htmlOutput = document.createElement('div'); // parent div
     htmlOutput.classList.add('alertMe_container');
+    if (config.theme && config.theme === 'round' || config.theme === 'flat') {
+        htmlOutput.classList.add(config.theme);
+    }
+    
     return buildItem(type, options, config, htmlOutput);
 }
 
