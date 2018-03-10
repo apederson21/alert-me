@@ -29,4 +29,7 @@ npm test
 ```
 
 ## Developer Guide
-TBD
+### Quickstart
+1. Pull down the repo and run a gulp build
+2. Include the AlertMe JS (`./build/alertMe.min.js`) and AlertMe CSS (`./build/alertMe.css`) into your build process or page.
+3. Bind an alert to something in your code. Example button clicks: https://codepen.io/apederson21/pen/OvPQbO
