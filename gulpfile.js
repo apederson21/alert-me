@@ -15,7 +15,7 @@ var connect = require('gulp-connect'),
 
 // tasks to run, i.e. "gulp build" via command line
 gulp.task("build", ["clean"], function(callback) {
-  runSequence("copyHTML", "copyHTMLAssets", "copyCSS", "jshint", "bundle", "uglifyjs", "reload", callback);
+  runSequence("copyHTML", "copyCSS", "jshint", "bundle", "uglifyjs", "reload", callback);
 });
 gulp.task("watch",["watchJS", "watchCSS", "watchHTML", "startServer"]);
 gulp.task("server",["startServer"]);
@@ -32,10 +32,6 @@ gulp.task("clean", function() {
 gulp.task("copyHTML", function() {
     return gulp.src("./app/html/*.*")
     .pipe(gulp.dest("./build"));
-});
-gulp.task("copyHTMLAssets", function() {
-    return gulp.src("./app/assets/*.*")
-    .pipe(gulp.dest("./build/assets"));
 });
 
 // copy css files
@@ -60,7 +56,6 @@ gulp.task('watchCSS', function() {
 });
 gulp.task('watchHTML', function() {
   gulp.watch('app/**/*.html', ['build']);
-  //gulp.watch('app/assets/*.html', ['build']);
 });
 
 // convert ES6 code in all js files in app/js folder and copy to
