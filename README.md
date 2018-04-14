@@ -67,7 +67,7 @@ The following options are available for alerts, notifications, or ribbons.
 
 <a name='dev-options'></a>
 | Option | Description | Alerts | Notifications | Ribbons |
-| --- | --- | -- | -- | -- |
+| --- | --- | --- | --- | --- |
 | `autoClose` | Boolean. Automatically remove element from the DOM after specified duration (below) | ❌ | ✅ | ✅ |
 | `autoCloseDuration` | Int. Duration in MS before element is removed from DOM | ❌ | ✅ | ✅ |
 | `class` | String. Custom class to be added to the element. Will be prefixed with `alertMe_` | ✅ | ✅ | ✅ |
