@@ -66,6 +66,7 @@ There is also a close method on the global alertMe object. Calling `alertMe.clos
 The following options are available for alerts, notifications, or ribbons.
 
 <a name='dev-options'></a>
+
 | Option | Description | Alerts | Notifications | Ribbons |
 | --- | --- | --- | --- | --- |
 | `autoClose` | Boolean. Automatically remove element from the DOM after specified duration (below) | ❌ | ✅ | ✅ |
