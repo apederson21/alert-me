@@ -7,9 +7,8 @@ An open source library for beautiful out of the box user alerts and notification
 * [Developer Guide](#developer-guide)
   * [Quickstart](#dev-quickstart)
   * [AlertMe Api](#dev-api)
-    * [Alerts](#dev-alerts)
-    * [Notifications](#dev-notifications)
-    * [Ribbons](#dev-ribbons)
+    * [Options](#dev-options)
+  * [AlertMe Config File](#config-file)
 
 <a name='installation'></a>
 ## Installation
@@ -64,14 +63,26 @@ These methods take various configuration options noted below. Also note that you
 
 There is also a close method on the global alertMe object. Calling `alertMe.close()` will close/remove all AlertMe elements from the DOM. This method can also take an optional element Id. AlertMe will generate a unique Id for each element added to the DOM via `new Date().toISOString()`.
 
-<a name='dev-alerts'></a>
-#### Alerts
-TBD
+The following options are available for alerts, notifications, or ribbons.
 
-<a name='dev-notifications'></a>
-#### Notifications
-TBD
+<a name='dev-options'></a>
+| Option | Description | Alerts | Notifications | Ribbons |
+| --- | --- | -- | -- | -- |
+| `autoClose` | Boolean. Automatically remove element from the DOM after specified duration (below) | ❌ | ✅ | ✅ |
+| `autoCloseDuration` | Int. Duration in MS before element is removed from DOM | ❌ | ✅ | ✅ |
+| `class` | String. Custom class to be added to the element. Will be prefixed with `alertMe_` | ✅ | ✅ | ✅ |
+| `closeX` | Boolean. Control the visibility of the close X. Cannot be shown when autoClose is true. | ❌ | ✅ | ✅ |
+| `effect` | String. Type of effect/animation to add to the element's appearance. Valid value(s): `slideIn` | ✅ | ✅ | ✅ |
+| `heading` | String. Heading text for your element. | ✅ | ✅ | ✅ |
+| `ok` | Object. If populated, will render an "Ok" button on your element. | ✅ | ❌ | ❌ |
+| `ok.text` | String. Override of the default "Ok" text on the button. | ✅ | ❌ | ❌ |
+| `ok.clickEvent` | Function. Override the default (removes the element) click handler for the "Ok" button. | ✅ | ❌ | ❌ |
+| `text` | String. The body text for your element. | ✅ | ✅ | ✅ |
 
-<a name='dev-ribbons'></a>
-#### Ribbons
-TBD
+<a name='config-file'></a>
+### AlertMe Config File
+You can add your own configuration file named `alertMe.json` in the root of your project directory to override the default configuration.
+
+The available options are:
+* `theme` The CSS theme. Possible values are 'round', 'flat'
+* `defaultDuration` Default time (in milliseconds) before an alert with the autoClose property is removed from the DOM
