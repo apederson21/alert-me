@@ -1,7 +1,5 @@
 // include required modules
-var connect = require('gulp-connect'),
-    del = require('del'),
-    babelify = require('babelify'),
+var del = require('del'),
     browserify = require('browserify'),
     browserSync = require('browser-sync').create(),
     gulp = require('gulp'),
@@ -99,6 +97,5 @@ gulp.task('startServer', function() {
   });
 })
 gulp.task('reload', function() {
-  console.log('going to reload');
   browserSync.reload();
 });

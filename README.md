@@ -40,6 +40,11 @@ Run unit tests (mocha)
 npm test
 ```
 
+Run integration tests (Cypress.io)
+```
+npm run automation
+```
+
 <a name='developer-guide'></a>
 ## Developer Guide
 <a name='dev-quickstart'></a>
