@@ -4,8 +4,10 @@
   "description": "JavaScript notification library",
   "main": "index.js",
   "scripts": {
-    "automation:runner": "gulp build && node server.js & $(npm bin)/cypress open",
+    "automation": "gulp build && $(npm bin)/http-server ./build & $(npm bin)/cypress run && npm run cleanupServer",
+    "automation:runner": "gulp build && $(npm bin)/http-server ./build & $(npm bin)/cypress open && npm run cleanupServer",
     "automation:alert": "gulp build && $(npm bin)/http-server ./build & $(npm bin)/cypress run --config integrationFolder='./test/integration/specs/alert' && npm run cleanupServer",
+    "automation:notification": "gulp build && $(npm bin)/http-server ./build & $(npm bin)/cypress run --config integrationFolder='./test/integration/specs/notification' && npm run cleanupServer",
     "build": "gulp build",
     "cleanupServer": "kill $(lsof -t -i:8080)",
     "dev": "gulp dev",

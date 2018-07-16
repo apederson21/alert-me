@@ -2,7 +2,7 @@
 
 let utils = require('../../utils/utils');
 
-describe('Alerts:', function () {
+describe('Notifications:', function () {
 
     // common assertions
     let assertContent = {
@@ -18,13 +18,18 @@ describe('Alerts:', function () {
         body: function () {
             cy.get('.alertMe_body')
                 .should('be.visible')
-                .should('contain', 'Some body text for the alert');
+                .should('contain', 'Some body text for the notification');
         },
-        button: function () {
-            cy.get('.alertMe_button')
-                .should('be.visible')
-                .should('contain', 'Click Me')
-                .click();
+        closeX: function () {
+            cy.get('div.alertMe_closeX')
+                .should('be.visible');
+        },
+        // automation cannot click the pseudo elements,
+        // so instead we can use the global alertMe close()
+        closeXConsole: function () {
+            cy.window().then((win) => {
+                win.alertMe.close();
+            });
         },
         destroyed: function () {
             // todo
@@ -41,8 +46,8 @@ describe('Alerts:', function () {
             utils.selectTheme('round');
         });
 
-        it('Verifies Alert with heading, text, button', function () {
-            cy.get('#alert_1').click();
+        it('Verifies Notification with heading, text, closeX', function () {
+            cy.get('#notification_1').click();
 
             // asser container
             assertContent.container();
@@ -53,15 +58,16 @@ describe('Alerts:', function () {
             // assert body
             assertContent.body();
 
-            // assert button and click
-            assertContent.button();
+            // assert closeX and close
+            assertContent.closeX();
+            assertContent.closeXConsole();
 
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Error Alert with heading, text, button', function () {
-            cy.get('#alert_2').click();
+        it('Verifies Error Notification with heading, text, closeX', function () {
+            cy.get('#notification_2').click();
 
             // asser container
             assertContent.container();
@@ -74,15 +80,16 @@ describe('Alerts:', function () {
             // assert body
             assertContent.body();
 
-            // assert button and click
-            assertContent.button();
+            // assert closeX and close
+            assertContent.closeX();
+            assertContent.closeXConsole();
 
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Success Alert with heading, text, button', function () {
-            cy.get('#alert_3').click();
+        it('Verifies Success Notification with heading, text, closeX', function () {
+            cy.get('#notification_3').click();
 
             // asser container
             assertContent.container();
@@ -95,15 +102,16 @@ describe('Alerts:', function () {
             // assert body
             assertContent.body();
 
-            // assert button and click
-            assertContent.button();
+            // assert closeX and close
+            assertContent.closeX();
+            assertContent.closeXConsole();
 
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Warning Alert with heading, text, button', function () {
-            cy.get('#alert_4').click();
+        it('Verifies Warning Notification with heading, text, closeX', function () {
+            cy.get('#notification_4').click();
 
             // asser container
             assertContent.container();
@@ -116,56 +124,52 @@ describe('Alerts:', function () {
             // assert body
             assertContent.body();
 
-            // assert button and click
-            assertContent.button();
+            // assert closeX and close
+            assertContent.closeX();
+            assertContent.closeXConsole();
 
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Alert with heading, text, and default button', function () {
-            cy.get('#alert_5').click();
+        it('Verifies Notification with heading and closeX', function () {
+            cy.get('#notification_5').click();
 
             // asser container
             assertContent.container();
 
             // assert header
             assertContent.header();
+            cy.get('.alertMe_header');
 
-            // assert body
-            assertContent.body();
+            // assert closeX and close
+            assertContent.closeX();
+            assertContent.closeXConsole();
 
-            // assert button and click
-            cy.get('.alertMe_button')
-                .should('be.visible')
-                .should('contain', 'Ok')
-                .click();
-
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Alert with heading and default button', function () {
-            cy.get('#alert_6').click();
+        it('Verifies Notification with heading and autoClose functionality', function () {
+            cy.get('#notification_6').click();
 
             // asser container
             assertContent.container();
 
             // assert header
             assertContent.header();
+            cy.get('.alertMe_header');
 
-            // assert button and click
-            cy.get('.alertMe_button')
-                .should('be.visible')
-                .should('contain', 'Ok')
-                .click();
+            // assert closeX not present
+            cy.get('.alertMe_header')
+                .should('not.contain', 'div');
 
-            // assert alert is removed from DOM
+            // assert notification is removed from DOM
             assertContent.destroyed();
         });
 
-        it('Verifies Alert not displayed when called with no props', function () {
-            cy.get('#alert_7').click();
+        it('Verifies Notification not displayed when called with no props', function () {
+            cy.get('#notification_7').click();
 
             // assert no element in DOM
             assertContent.destroyed();

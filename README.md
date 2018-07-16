@@ -40,9 +40,14 @@ Run unit tests (mocha)
 npm test
 ```
 
-Run integration tests (Cypress.io)
+Run integration tests (headless) (Cypress.io)
 ```
 npm run automation
+```
+
+Open Cypress.io test runner
+```
+npm run automation:runner
 ```
 
 <a name='developer-guide'></a>
