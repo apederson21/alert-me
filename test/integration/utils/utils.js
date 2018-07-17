@@ -7,8 +7,8 @@ module.exports = {
 
 function assertions() {
     return {
-        container: function () {
-            cy.get('.alertMe_container')
+        container: function (theme) {
+            cy.get(`.alertMe_container.${theme || 'round'}`)
                 .should('be.visible')
         },
         header: function () {
