@@ -6,15 +6,6 @@ describe('Alerts:', function () {
 
     // common assertions
     let assertContent = {
-        container: function (){
-            cy.get('.alertMe_container')
-                .should('be.visible')
-        },
-        header: function () {
-            cy.get('.alertMe_header')
-                .should('be.visible')
-                .should('contain', 'My Heading');
-        },
         body: function () {
             cy.get('.alertMe_body')
                 .should('be.visible')
@@ -25,9 +16,6 @@ describe('Alerts:', function () {
                 .should('be.visible')
                 .should('contain', 'Click Me')
                 .click();
-        },
-        destroyed: function () {
-            // todo
         }
     }
 
@@ -45,10 +33,10 @@ describe('Alerts:', function () {
             cy.get('#alert_1').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
 
             // assert body
             assertContent.body();
@@ -57,17 +45,17 @@ describe('Alerts:', function () {
             assertContent.button();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Error Alert with heading, text, button', function () {
             cy.get('#alert_2').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
             cy.get('.alertMe_header')
                 .should('have.class', 'alertMe_error');
 
@@ -78,17 +66,17 @@ describe('Alerts:', function () {
             assertContent.button();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Success Alert with heading, text, button', function () {
             cy.get('#alert_3').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
             cy.get('.alertMe_header')
                 .should('have.class', 'alertMe_success');
 
@@ -99,17 +87,17 @@ describe('Alerts:', function () {
             assertContent.button();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Warning Alert with heading, text, button', function () {
             cy.get('#alert_4').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
             cy.get('.alertMe_header')
                 .should('have.class', 'alertMe_warning');
 
@@ -120,17 +108,17 @@ describe('Alerts:', function () {
             assertContent.button();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Alert with heading, text, and default button', function () {
             cy.get('#alert_5').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
 
             // assert body
             assertContent.body();
@@ -142,17 +130,17 @@ describe('Alerts:', function () {
                 .click();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Alert with heading and default button', function () {
             cy.get('#alert_6').click();
 
             // asser container
-            assertContent.container();
+            utils.assertions().container();
 
             // assert header
-            assertContent.header();
+            utils.assertions().header();
 
             // assert button and click
             cy.get('.alertMe_button')
@@ -161,14 +149,14 @@ describe('Alerts:', function () {
                 .click();
 
             // assert alert is removed from DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
         it('Verifies Alert not displayed when called with no props', function () {
             cy.get('#alert_7').click();
 
             // assert no element in DOM
-            assertContent.destroyed();
+            utils.assertions().destroyed();
         });
 
     });

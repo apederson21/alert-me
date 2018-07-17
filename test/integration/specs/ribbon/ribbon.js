@@ -2,14 +2,14 @@
 
 let utils = require('../../utils/utils');
 
-describe('Notifications:', function () {
+describe('Ribbon:', function () {
 
     // common assertions
     let assertContent = {
         body: function () {
             cy.get('.alertMe_body')
                 .should('be.visible')
-                .should('contain', 'Some body text for the notification');
+                .should('contain', 'Some body text for the ribbon');
         },
         closeX: function () {
             cy.get('div.alertMe_closeX')
@@ -34,8 +34,8 @@ describe('Notifications:', function () {
             utils.selectTheme('round');
         });
 
-        it('Verifies Notification with heading, text, closeX', function () {
-            cy.get('#notification_1').click();
+        it('Verifies Ribbon with heading, text, closeX', function () {
+            cy.get('#ribbon_1').click();
 
             // asser container
             utils.assertions().container();
@@ -50,12 +50,12 @@ describe('Notifications:', function () {
             assertContent.closeX();
             assertContent.closeXConsole();
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Error Notification with heading, text, closeX', function () {
-            cy.get('#notification_2').click();
+        it('Verifies Error Ribbon with heading, text, closeX', function () {
+            cy.get('#ribbon_2').click();
 
             // asser container
             utils.assertions().container();
@@ -72,12 +72,12 @@ describe('Notifications:', function () {
             assertContent.closeX();
             assertContent.closeXConsole();
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Success Notification with heading, text, closeX', function () {
-            cy.get('#notification_3').click();
+        it('Verifies Success Ribbon with heading, text, closeX', function () {
+            cy.get('#ribbon_3').click();
 
             // asser container
             utils.assertions().container();
@@ -94,12 +94,12 @@ describe('Notifications:', function () {
             assertContent.closeX();
             assertContent.closeXConsole();
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Warning Notification with heading, text, closeX', function () {
-            cy.get('#notification_4').click();
+        it('Verifies Warning Ribbon with heading, text, closeX', function () {
+            cy.get('#ribbon_4').click();
 
             // asser container
             utils.assertions().container();
@@ -116,12 +116,12 @@ describe('Notifications:', function () {
             assertContent.closeX();
             assertContent.closeXConsole();
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Notification with heading and closeX', function () {
-            cy.get('#notification_5').click();
+        it('Verifies Ribbon with heading and closeX', function () {
+            cy.get('#ribbon_5').click();
 
             // asser container
             utils.assertions().container();
@@ -134,12 +134,12 @@ describe('Notifications:', function () {
             assertContent.closeX();
             assertContent.closeXConsole();
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Notification with heading and autoClose functionality', function () {
-            cy.get('#notification_6').click();
+        it('Verifies Ribbon with heading and autoClose functionality', function () {
+            cy.get('#ribbon_6').click();
 
             // asser container
             utils.assertions().container();
@@ -152,12 +152,12 @@ describe('Notifications:', function () {
             cy.get('.alertMe_header')
                 .should('not.contain', 'div');
 
-            // assert notification is removed from DOM
+            // assert ribbon is removed from DOM
             utils.assertions().destroyed();
         });
 
-        it('Verifies Notification not displayed when called with no props', function () {
-            cy.get('#notification_7').click();
+        it('Verifies Ribbon not displayed when called with no props', function () {
+            cy.get('#ribbon_7').click();
 
             // assert no element in DOM
             utils.assertions().destroyed();
