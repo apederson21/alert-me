@@ -14,6 +14,8 @@ An open source library for beautiful out of the box user alerts and notification
 ## Installation
 Install the latest version of [Node](https://nodejs.org)
 
+If using NVM there is an .nvmrc file in the root so you can run `nvm use`
+
 Then, in your local directory, run npm install to get all required dependencies
 ```
 npm install
